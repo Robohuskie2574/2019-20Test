@@ -1,0 +1,11 @@
+2019-2020 Test Project JEI 
+
+(FRC/robot) - The all-encompassing package 
+  (commands) - Contains all of the commands 
+    Teleop.java - Contains the command to move the robot via joystick input 
+  (subsystems) - Contains all of the subsystems 
+    DriveTrain.java - Manages functions and instances relating to movement of the robot (drive_train)
+  Main.java - The main file. Do not edit. 
+  OI.java - Contains functions relating to controller input (m_oi) 
+  Robot.java - Manages most of the functions and commands relating to the robot 
+  RobotMap.java 
