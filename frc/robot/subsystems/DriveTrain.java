@@ -39,6 +39,7 @@ public class DriveTrain extends Subsystem {
     diffDrive.arcadeDrive​(x_axis, y_axis);
   }
   /* drive() is a method that takes in amounts to move by and moves the controls by those inputs */
+  // arcadeDrive() is a method in the API that is one method of controlling motors, similar to that of an arcade joystick
 
 
   @Override
