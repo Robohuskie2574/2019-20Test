@@ -7,7 +7,8 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command; // imports the command type constructor from the FIRST API 
+// WPI Command package reference https://first.wpi.edu/FRC/roborio/release/docs/java/edu/wpi/first/wpilibj/command/package-summary.html
+import edu.wpi.first.wpilibj.command.Command; // The class at the center of the command package's framework 
 import frc.robot.Robot; // imports the Robot.java class from the robot package in order to acces the m_oi instance of the OI.java object and drive_train of DriveTrain.java
 
 
@@ -15,26 +16,29 @@ import frc.robot.Robot; // imports the Robot.java class from the robot package i
 from the joystick remotely and  */
 
 public class Teleop extends Command {
-  public Teleop() {
+  public Command () { // if this doesn't work, try public Command("Teleop"). If it still doesn't, revert to public Teleop()
     // Use requires() here to declare subsystem dependencies
     requires(Robot.drive_train); // Because this whole command is about moving the robot, it requires the drive_train instance  
   }
-
+  // See if public Command(Robot.drive_train) works to replicate the form public Command(String name, double timeout, Subsystem subsystem)
+  // If so, delete requires(Robot.drive_train) 
+  
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    // Called the first time the command is called after being started 
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
-  protected void execute() { // runs when the function is executed
+  protected void execute() { // runs repeatedly until command is cancelled or finished 
     Robot.drive_train.drive(Robot.m_oi.get_x(), Robot.m_oi.get_y()); // calls the drive() function from the drive_train instance of DriveTrain
     // m_oi is the Robot.java instance of OI.java, get_x and y is a method in OI.java 
   }
 
   // Make this return true when this Command no longer needs to run execute()
-  @Override
-  protected boolean isFinished() {
+  @Override 
+  protected boolean isFinished() { // Returns whether command is finished. If so, the command will be removed and end() will be called
     return false;
   }
 
@@ -49,3 +53,10 @@ public class Teleop extends Command {
   protected void interrupted() {
   }
 }
+
+/* Start() starts up the command 
+isRunning() returns whether the command is running 
+cancel() cancels the current command 
+isCancelled() returns whether or not the command has been cancelled
+isCompleted() returns whether or not the command has completed
+toString() returns the string form of the command's name */ 
