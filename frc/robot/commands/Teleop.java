@@ -7,8 +7,8 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.Robot; 
+import edu.wpi.first.wpilibj.command.Command; // imports the command type constructor from the FIRST API 
+import frc.robot.Robot; // imports the Robot.java class from the robot package in order to acces the m_oi instance of the OI.java object and drive_train of DriveTrain.java
 
 
 /** Teleop is a command file. Teleop means 'remotely operated', for this file manages taking input 
@@ -17,7 +17,7 @@ from the joystick remotely and  */
 public class Teleop extends Command {
   public Teleop() {
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.drive_train);
+    requires(Robot.drive_train); // Because this whole command is about moving the robot, it requires the drive_train instance  
   }
 
   // Called just before this Command runs the first time
