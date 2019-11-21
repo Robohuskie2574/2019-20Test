@@ -7,7 +7,7 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Joystick; // https://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/Joystick.html
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -21,9 +21,9 @@ public class OI {
   // number it is.
   // Joystick stick = new Joystick(port);
   // Button button = new JoystickButton(stick, buttonNumber)
-  Joystick stick = new Joystick(0);
-  public double get_x() {return stick.getX();}
-  public double get_y() {return stick.getY();}
+  Joystick stick = new Joystick(0); // The parameter is the index of the USB port the joystick is plugged into 
+  public double get_x() {return stick.getX();} // Returns the x coordinate of the joystick 
+  public double get_y() {return stick.getY();} // Returns the y coordinate of the joystick 
   
 
   // There are a few additional built in buttons you can use. Additionally,
