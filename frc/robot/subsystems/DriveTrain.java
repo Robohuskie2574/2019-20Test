@@ -23,8 +23,8 @@ import frc.robot.commands.Teleop; // imports the Teleop.java command class
 
 /** This subsystem handles matters relating to the movement of the robot **/ 
 public class DriveTrain extends Subsystem {
-  public DriveTrain(){
-    // Delete constructor? 
+  public Subsystem(){ // initializes the constructor for this subsystem. 
+    // By default sets the name of the constructor to the name of the class, but can also be changed using Subsystem("DriveTrain") or public DriveTrain()
   }
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
