@@ -25,9 +25,23 @@ public class OI {
   // Joystick stick = new Joystick(port);
   // Button button = new JoystickButton(stick, buttonNumber)
   Joystick stick = new Joystick(0); // The parameter is the index of the USB port the joystick is plugged into 
-  public double get_x() {return stick.getX();} // Returns the x coordinate of the joystick 
-  public double get_y() {return stick.getY();} // Returns the y coordinate of the joystick 
-  
+  // Buffers 
+  double buffer = 0.2; // Joystick must be pushed to at least this percentage on a given axis
+  double speed = 0.8; // the multiple by which the speed at which the robot travels is multiplied by 
+  public double get_x(){ // x buffer
+    if (stick.getX() > buffer || stick.getX() < -buffer){
+      return -stick.getX() * speed; 
+    else {
+      return 0; 
+    }
+  }
+  public double get_y(){ // y buffer
+    if (stick.getY() > buffer || stick.getY() < -buffer){
+      return stick.getY() * speed; 
+    else {
+      return 0; 
+    }
+  }
 
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
