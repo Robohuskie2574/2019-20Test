@@ -25,6 +25,11 @@ import frc.robot.commands.Teleop; // imports the Teleop.java command class
 public class DriveTrain extends Subsystem {
   public Subsystem(){ // initializes the constructor for this subsystem. 
     // By default sets the name of the constructor to the name of the class, but can also be changed using Subsystem("DriveTrain") or public DriveTrain()
+    // Side inversion
+    front_left.setInverted(true);
+    back_left.setInverted(true); 
+    /* Because the two sides are facing opposite directions, one's clockwise is the other's counter-clockwise. 
+       So, it is necessary to invert one side for forward motion to be achieved */ 
   }
   // Motor Controller Initialization
   WPI_TalonSRX front_left  = new WPI_TalonSRX(1); // The number is the ID of the motor 
@@ -39,12 +44,6 @@ public class DriveTrain extends Subsystem {
   SpeedControllerGroup left = new SpeedControllerGroup(front_left, back_left);
   SpeedControllerGroup right = new SpeedControllerGroup(front_right, back_right);
   // SpeedControllerGroup is a way of grouping together microcontrollers. These groups can be told to run as a group of operations
-  
-  // Side inversion 
-  setLeftSideInverted(true); // because the motors are set in opposite directions, inverting is necessary for driving to go forward rather than spin
-  setRightSideInverted(false); // to ensure this side is not inverted 
-  /** CHECK WHETHER ABOVE STATEMENTS NEEDS TO BE INSIDE CONTRUCTOR **/ 
-  /* IF THIS DOESN'T WORK, USE THE BUILT-IN INVERSION STATEMENTS FOR EACH INDIVIDUAL MOTOR CONTROLLER */ 
   
   // Drive setting 
   DifferentialDrive diffDrive = new DifferentialDrive(left, right);
