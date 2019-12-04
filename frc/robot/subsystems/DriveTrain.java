@@ -44,6 +44,7 @@ public class DriveTrain extends Subsystem {
   setLeftSideInverted(true); // because the motors are set in opposite directions, inverting is necessary for driving to go forward rather than spin
   setRightSideInverted(false); // to ensure this side is not inverted 
   /** CHECK WHETHER ABOVE STATEMENTS NEEDS TO BE INSIDE CONTRUCTOR **/ 
+  /* IF THIS DOESN'T WORK, USE THE BUILT-IN INVERSION STATEMENTS FOR EACH INDIVIDUAL MOTOR CONTROLLER */ 
   
   // Drive setting 
   DifferentialDrive diffDrive = new DifferentialDrive(left, right);
