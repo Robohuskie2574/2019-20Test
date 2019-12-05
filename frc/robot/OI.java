@@ -9,6 +9,8 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick; // https://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/Joystick.html
 
+import java.lang.Math; // absolute value 
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -29,14 +31,14 @@ public class OI {
   double buffer = 0.2; // Joystick must be pushed to at least this percentage on a given axis
   double speed = 0.8; // the multiple by which the speed at which the robot travels is multiplied by 
   public double get_x(){ // x buffer
-    if (stick.getX() > buffer || stick.getX() < -buffer){
-      return -stick.getX() * speed; 
+    if (Math.abs(stick.getX()) > buffer){
+      return -stick.getX() * speed; // Negated, as the robot was turning left when supposed to go right and vice versa
     else {
       return 0; 
     }
   }
   public double get_y(){ // y buffer
-    if (stick.getY() > buffer || stick.getY() < -buffer){
+    if (Math.abs(stick.getY()) > buffer){
       return stick.getY() * speed; 
     else {
       return 0; 
