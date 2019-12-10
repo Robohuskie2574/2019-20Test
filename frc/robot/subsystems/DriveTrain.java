@@ -30,6 +30,9 @@ public class DriveTrain extends Subsystem {
     back_left.setInverted(true); 
     /* Because the two sides are facing opposite directions, one's clockwise is the other's counter-clockwise. 
        So, it is necessary to invert one side for forward motion to be achieved */ 
+    front_right.setInverted(false); 
+    back_right.setInverted(false); 
+    // Above code ensures that the right wheels don't actually have their defaults reset and inverted. Is probably optional 
   }
   // Motor Controller Initialization
   WPI_TalonSRX front_left  = new WPI_TalonSRX(1); // The number is the ID of the motor 
@@ -39,6 +42,8 @@ public class DriveTrain extends Subsystem {
   CTRE, but because it is WPI-compatible, it can still be included in speed controller groups*/ 
   WPI_TalonSRX back_left   = new WPI_TalonSRX(3);
   WPI_TalonSRX back_right  = new WPI_TalonSRX(4);
+  /* The IDs of the motors need to be checked for each new robot. To see which number corresponds to which wheel, a program like 
+  Pheonix Tuner can be used for the Pheonix brand of motorcontrollers */ 
   
   // Speed controller groups 
   SpeedControllerGroup left = new SpeedControllerGroup(front_left, back_left);
