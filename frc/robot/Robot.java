@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+// TODO: Invert backwards movement 
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -22,8 +24,8 @@ import frc.robot.subsystems.DriveTrain;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static DriveTrain drive_train = new DriveTrain();
-  public static OI m_oi;
+  public static DriveTrain drive_train = new DriveTrain(); // creation of the DriveTrain object
+  public static OI m_oi; // declaration of the OI object 
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -34,7 +36,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    m_oi = new OI();
+    m_oi = new OI(); // object intitialization of the OI class 
    // m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
