@@ -29,7 +29,7 @@ public class Teleop extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() { // runs when the function is executed
-    Robot.drive_train.drive(Robot.m_oi.get_x(), Robot.m_oi.get_y()); // calls the drive() function from the drive_train instance of DriveTrain
+    Robot.drive_train.drive(Robot.m_oi.getTwist(), Robot.m_oi.get_y()); // calls the drive() function from the drive_train instance of DriveTrain
   }
 
   // Make this return true when this Command no longer needs to run execute()
