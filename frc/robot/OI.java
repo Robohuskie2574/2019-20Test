@@ -35,14 +35,22 @@ public class OI {
       return 0;
     }
   }
-
-  public double get_x(){
+  public double get_twist(){
+    if (Math.abs(stick.getTwist()) > buffer){
+      return stick.getTwist();  
+    } else {
+      return 0;
+    }
+  }
+  
+  // steering-based turning 
+  /*public double get_x(){
       if (Math.abs(stick.getX()) > buffer){
         return -stick.getX() * speed; // negates the x-setting, for orientation
       } else {
         return 0;
       }
-  }
+  }*/
 
 
 // TODO: Add twist movement in addition to y-axis 
